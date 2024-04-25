@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>ecodibba Calculator</title>
+  <link rel="icon" href="head.png" type="image/icon type">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="https://ecodibba.com/" class="brand-logo"><img src="logo.png" width="270px" style="margin-top: 3%;"></a>
+      <button class="navbar-toggler" width="270px">&#9776;</button>
+      <div class="navbar-links">
+        <a href="https://ecodibba.com/">Home</a>
+        <a href="http://rfq.ecodibba.com">RFQ form</a>
+        <a href="#" style="display: none;">Digital Card</a>
+        <a href="http://calculator.ecodibba.com" style="display: none;">Cost Calculator</a>
+      </div>
+    </div>
+
+  </nav>
+  <div class="side-menu">
+    <div class="container" style="display: block;">
+      <a href="https://ecodibba.com/">Home</a>
+      <a href="http://rfq.ecodibba.com">RFQ form</a>
+      <a href="#" style="display: none;">Digital Card</a>
+      <a href="http://calculator.ecodibba.com" style="display: none;">Cost Calculator</a>
+    </div>
+  </div>
+
+
+  <div class="content">
+
+    <div class="wrapper" style="padding-bottom: 0.1%; margin-bottom:1%;">
+
+      <div class="form_wrap">
+        <form  id="form" method="POST" action="http://127.0.0.1:5501/index.html">
+          <div class="form_1 data_info">
+            <h2>corrugated box cost Calculator</h2>
+
+
+            <div class="form_container">
+              <label>Quotation is valid for </label>
+              <div class="form-row" style="display:flex;">
+                <select id="days" class="form-input" required style="flex: 1;" name="days">
+                  <option value="" selected disabled>Number of days</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+
+
+              </div>
+
+              <label>Enter Box Dimensions </label>
+              <div class="form-row" style="display:flex;">
+
+                <input type="number" id="length" class="form-input" placeholder="Length (inch)"
+                  style="flex: 1; margin-right: 5px;" name="length" value="">
+                <input type="number" id="width" class="form-input"  placeholder="Width (inch)"
+                  style="flex: 1; margin-right: 5px;" name="width" value="">
+                <input type="number" id="height" class="form-input" placeholder="Height (inch)" style="flex: 1;"
+                  name="height" value="">
+              </div>
+
+
+              <label>Enter GSM Specification</label>
+              <div class="form-row" style="display: flex;">
+
+                <input type="number" id="UGSM" class="form-input" placeholder="Upper side GSM"
+                  style="flex: 1; margin-right: 5px;" name="UGSM" value="">
+                <input type="number" id="FGSM" class="form-input" value="" placeholder="Flute GSM"
+                  style="flex: 1; margin-right: 5px;" name="FGSM">
+                <input type="number" id="LGSM" class="form-input" placeholder="Lower side GSM" style="flex: 1;"
+                  name="LGSM" value="">
+              </div>
+
+              <label>Enter Order Details</label>
+              <input type="number" id="quantity" class="form-input" placeholder="Quantity Needed" style="flex: 1;"
+                name="quantity" value="">
+              <label>Enter Box Specification</label>
+              <div class="form-row" style="display: flex;">
+
+
+                <select id="printed" class="form-input" required style="flex: 1;" name="printed">
+                  <option value="" selected disabled>Printed? Select Option</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+
+                <select id="PLY" class="form-input" name="PLY" style="flex: 1; margin-left : 5px;">
+                  <option value="Null" selected disabled>Select Ply</option>
+                  <option value="3">3</option>
+                  <option value="5">5</option>
+                  <option value="7">7</option>
+                </select>
+              </div>
+
+              <label>Box Print Specifications</label>
+              <div class="form-row" id="prt_ques" style="display: none;">
+                <input type="number" id="fixed_charge" class="form-input" placeholder="Fixed charge"
+                  style="flex: 1; margin-right: 5px;" name="fixed_charge" value="">
+                <input type="number" id="die_cost" class="form-input" value="" placeholder="Box die cost"
+                  style="flex: 1; margin-right: 5px;" name="die_cost">
+                
+                <select id="Prt" class="form-input" name="Prt" style="flex: 1;">
+                  <option value="No" selected disabled>Box colouring type</option>
+                  <option value="1">Multi Color</option>
+                  <option value="2">Two Color</option>
+                </select>
+
+
+              </div>
+
+              <label>Manufacturing Sheet Rate</label>
+              <div class="form-row">
+                <input type="number" id="rate" class="form-input" placeholder="Sheet rate in Rs/Kg" style="flex: 1;"
+                  name="rate" value="">
+              </div>
+              <label for="wgh">Selling Margin ( % )</label>
+              <div class="form-row">
+
+                <input type="number" id="margin" class="form-input" placeholder="0 %" style="flex: 1;" name="margin"
+                  value="">
+              </div>
+              <label for="wgh">Weight/Box (Kgs)</label>
+              <div class="form-row">
+
+                <input type="number" id="wgh" class="form-input" placeholder="0 Kgs" style="flex: 1;" name="wgh"
+                  value="" >
+              </div>
+
+
+              <label for="box_rater">Cost per Box (INR)</label>
+              <div class="form-row">
+                <input type="number" name="box_rater"  id="box_rater" class="form-input" placeholder="0 INR/box" style="flex: 1;"
+                  value="" >
+              </div>
+              <label for="price">Total Oder Cost (INR)</label>
+              <textarea id="price" name="price" class="form-input" placeholder="0 Rs" value="" ></textarea>
+              <label for="contact">Contact Details</label>
+              <textarea id="contact" name="contact" class="form-input" placeholder="Phone Number / Email" value="" ></textarea>
+            </div>
+          </div>
+
+
+
+
+        </form>
+
+        <div class="btns_wrap" style="padding: 5%;align-items:baseline; bottom: -170px;">
+
+          <div class="common_btns form_2_btns" style="margin: auto; width:300px;z-index:-5;">
+            <button type="button"  id="mail" class="btn_back" onclick="sendMail()">E-Mail</button>
+            <button type="button" id="Whatsapp" class="btn_next" onclick="sendwhatsapp()" style="margin-left:5px ; text-align: center;">Whatsapp</button>
+          </div>
+         
+        </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript" src="scripts.js"></script>
+  
+
+</body>
+
+</html>
