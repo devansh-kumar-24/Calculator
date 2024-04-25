@@ -506,8 +506,18 @@ body{
 		
 	}
 }
+label{
+	font-weight: bold;
+	font-size: small;
+}
+
 
 @media (pointer: coarse) {
+	label{
+		font-weight: bold;
+		font-size:larger;
+	}
+
 	.navbar-links {
         display: none;
     }
@@ -653,7 +663,3 @@ body{
 	0% { transform: rotate(0deg); }
 	100% { transform: rotate(360deg); }
   }
-label{
-	font-weight: bold;
-	font-size: small;
-}
